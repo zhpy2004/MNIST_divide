@@ -66,7 +66,7 @@ def test(model, device, test_loader):
             output = model(data)
             test_loss += F.nll_loss(output, target, reduction="sum").item() 
             pred = output.argmax(dim=1, keepdim=True) 
-            correct += pred.eq(target.view_as(pred)).sum().item()
+            correct += pred.eq(target.view_as(pred)).sum().item()#
 
     test_loss /= len(test_loader.dataset)
 
