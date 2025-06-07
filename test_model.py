@@ -65,7 +65,7 @@ def main():
                         help="load the trained model weights or not (default: no)")
     parser.add_argument("--model", type=str, default="LeNet",
                         help="choose the model to train (default: LeNet)")
-    parser.add_argument("--num-test-samples", type=int, default=300, metavar="N", # ** 这里的num-test-samples是测试集的数量，默认是10000
+    parser.add_argument("--num-test-samples", type=int, default=10000, metavar="N", # ** 这里的num-test-samples是测试集的数量，默认是10000
                     help="number of testing samples to use (default: 10000)")
     args = parser.parse_args()
     use_cuda = not args.no_cuda and torch.cuda.is_available() 

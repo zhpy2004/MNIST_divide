@@ -64,8 +64,8 @@ def test(model, device, test_loader):
         for data, target in test_loader:
             data, target = data.to(device), target.to(device)
             output = model(data)
-            test_loss += F.nll_loss(output, target, reduction="sum").item() # sum up batch loss 
-            pred = output.argmax(dim=1, keepdim=True) # get the index of the max log-probability
+            test_loss += F.nll_loss(output, target, reduction="sum").item() 
+            pred = output.argmax(dim=1, keepdim=True) 
             correct += pred.eq(target.view_as(pred)).sum().item()
 
     test_loss /= len(test_loader.dataset)
@@ -107,7 +107,7 @@ def main():
                         help="load the trained model weights or not (default: no)")
     parser.add_argument("--model", type=str, default="LeNet",                       # 这里的model是选择的模型，默认是LeNet
                         help="choose the model to train (default: LeNet)")
-    parser.add_argument("--num-train-samples", type=int, default=6000, metavar="N", # ** 这里的num-train-samples是训练集的数量，默认是60000
+    parser.add_argument("--num-train-samples", type=int, default=60000, metavar="N", # ** 这里的num-train-samples是训练集的数量，默认是60000
                     help="number of training samples to use (default: 60000)")
     parser.add_argument("--num-test-samples", type=int, default=10000, metavar="N", # ** 这里的num-test-samples是测试集的数量，默认是10000
                     help="number of testing samples to use (default: 10000)")
